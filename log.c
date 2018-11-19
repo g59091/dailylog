@@ -9,6 +9,7 @@ int main()
   FILE *fptr;
   char filename[100], sentence[100], fnbuf[100], *timecheck;
   char am[] = "AM", pm[] = "PM";
+  
   time_t rawtime;
   time(&rawtime);
   struct tm *currentdate = localtime(&rawtime);

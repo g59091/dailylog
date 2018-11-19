@@ -7,7 +7,7 @@
 int main()
 {
   FILE *fptr;
-  char filename[100], sentence[100], fnbuf[100], *timecheck;
+  char filename[100], sentence[100], fnbuf[100], timecheck[100];
   char am[] = "AM", pm[] = "PM";
   
   time_t rawtime;
@@ -26,14 +26,13 @@ int main()
   
   snprintf(fnbuf, sizeof(fnbuf), "log%d%d%d.txt", day, mon, year - 2000);
   fptr = fopen(fnbuf, "a+");
-  //snprintf(timecheck, sizeof(timecheck), "%d:%d:%d %s", hour % 12, min, sec, (hour >= 12) ? "PM" : "AM"); 
-  //printf(timecheck);
+  snprintf(timecheck, sizeof(timecheck), "%d:%d:%02d %s\n", hour % 12, min, sec, (hour >= 12) ? "PM" : "AM"); 
+  printf(timecheck);
   while (strcmp(gets(sentence), "===") != 0) 
   {	
-  	//fputs(timecheck, fptr);
-  	fputs("\n", fptr);
+  	fputs(timecheck, fptr);
     fputs(sentence, fptr);
-    fputs("\n", fptr);
+    fputs("\n\n", fptr);
   }
   fclose(fptr);
   printf("File closed and saved.");

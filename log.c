@@ -35,7 +35,10 @@ int main()
     fputs("\n\n", fptr);
   }
   fclose(fptr);
-  printf("File closed and saved.");
+  printf("\n======================\n");
+  printf("File closed and saved.\n");
+  printf("======================\n");
+  sleep(2);
   
   return 0;
 }
